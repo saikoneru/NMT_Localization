@@ -1,12 +1,21 @@
 # Analyzing Challenges in Neural Machine Translation for Software Localization
 ## Documentation for reproducing experiments and/or scraping PO files from Github Repositories
 ### Overview
+- Disambiguation Test Set
 - Requirements
 - Downloading WMT data
 - Tokenizing and BPE (Pre-training WMT)
 - Scraping and Parsing GIT po files
 - Creating Context appended data sets ( + Tokenize, BPE, Preprocess)
 - Training and Evaulating models (All)
+
+## Disambiguation Test Set
+The file 'data/test_disamb/en_de.disambiguation' contains the final human annotated test data (95 sentence pairs).
+
+Each string contains the source, target and the link to the PO file (github repository) in the following format
+
+'source', 'target', 'PO file'
+
 ## Requirements
 Create a new conda environment by importing the `Kontextmt.yml` file
 ```sh
@@ -58,7 +67,8 @@ mv https://nlp.stanford.edu/projects/nmt/data/wmt14.en-de/newstest2014.de test.d
 cd ../../scripts/
 ```
 ## Tokenizing and BPE (Pre-training WMT)
-`Note: To experiment with different language pair or having a different file structure, you have to currently change the variables inside the script. Inside the next version, this will be removed and argument based style will be implemented`
+`Note: To experiment with different language pair or having a different file structure, you have to currently change the variables inside the script. If you want to add special tags that you already know during, you append your new words now. If they are unknown or will be determined, then you can later also append the embedding layer (code for extending the embedding layer will be uploaded soon)`
+
 To tokenize the data, use the `tokenize_data.sh` file with source and target language as arguments. Then learn and apply byte-pair-encoding using the `learn_apply_bpe.sh` script. You can change the number of merge operations inside the same script
 ```sh
 bash tokenize_data.sh "en" "de"
