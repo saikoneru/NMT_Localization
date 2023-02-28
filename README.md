@@ -74,9 +74,9 @@ To tokenize the data, use the `tokenize_data.sh` file with source and target lan
 bash tokenize_data.sh "en" "de"
 bash learn_apply_bpe.sh
 ```
-This will create the `KIT-KontextMT/wmt_data/bpe/` folder with tokenized versions for train, dev and test data.
+This will create the `$ROOT/wmt_data/bpe/` folder with tokenized versions for train, dev and test data.
 ## Scraping and Parsing GIT po files
-If everything is installed correctly, you can use the `get_gitdata.sh` script to download and parse po files from Github repositories. (If you do not want to download, you can use the downloaded files here `/q_files/users/SaiKoneru/KIT-KontextMT/data/gitdata_parsed_de/`)
+If everything is installed correctly, you can use the `get_gitdata.sh` script to download and parse po files from Github repositories. (If you do not want to download, you can use the downloaded files here `$ROOT/data/gitdata_parsed_de/`)
 For example to download English to German po files, run the following command with the target language as argument in the `scripts/` directory
 ```sh
 bash get_gitdata.sh "de"
